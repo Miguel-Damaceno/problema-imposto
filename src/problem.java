@@ -7,7 +7,7 @@ public class problem {
 		Locale.setDefault(Locale.US);
 		Scanner sc = new Scanner (System.in);
 		
-		double salario, salarioanual, serviços, capital, medicos, educacionais, impostosalario=0, impostoserviços=0, impostocapital=0, maxdedutivel=0, gastosdedutiveis=0;
+		double salario, salarioanual, serviços, capital, medicos, educacionais, impostosalario=0, impostoserviços=0, impostocapital=0, maxdedutivel=0, gastosdedutiveis=0, impostobruto=0, abat=0, impostodevido=0;
 		
 		System.out.println("Renda anual com salário: ");
 		salarioanual = sc.nextDouble();
@@ -64,7 +64,15 @@ public class problem {
 		System.out.printf("Máximo dedutível: %.2f%n", maxdedutivel);
 		System.out.printf("Gastos dedutíveis: %.2f%n", gastosdedutiveis);
 		
+		impostobruto = impostosalario + impostoserviços + impostocapital;
+		abat = maxdedutivel;
+		impostodevido = impostobruto - abat;
 		
+		System.out.println("");
+		System.out.println("RESUMO:");
+		System.out.printf("Imposto bruto total: %.2f%n", impostobruto);
+		System.out.printf("Abatimento: %.2f%n", abat);
+		System.out.printf("Imposto devido: %.2f%n", impostodevido);
 		
 		
 		sc.close();
